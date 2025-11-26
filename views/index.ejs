@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <p><a href="/new">Create Message</a></p>
+    <ul>
+        <% for(const msg of messages) { %>
+        <li>
+            <p><%= msg.user %>: <%= msg.text%></p>
+            <p>Posted on <%= msg.added%></p>
+            <% const url = `/open?user=${encodeURIComponent(msg.user)}&text=${encodeURIComponent(msg.text)}`; %>
+            <a href= "<%= url %>">Open</a>
+        </li>
+        <% } %>
+    </ul>
+</body>
+</html>
